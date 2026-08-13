@@ -1,0 +1,6 @@
+{
+  "name": "GoogleVerse",
+  "description": "Wear the internet. AI style scanner, personalized merch recommendations, virtual try-on, and Gemini merch guide.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
