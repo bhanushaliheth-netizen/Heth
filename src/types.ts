@@ -21,6 +21,7 @@ export interface Product {
   colors: string[];
   fitOptions: FitOption[];
   image: string;
+  images?: string[];
   tags: string[];
   featured?: boolean;
   limited?: boolean;

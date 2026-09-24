@@ -21,9 +21,15 @@ export const ProductDetailModal: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [selectedFit, setSelectedFit] = useState<FitOption>('Relaxed');
   const [selectedColor, setSelectedColor] = useState<string>('');
+  const [selectedImage, setSelectedImage] = useState<string>('');
+
+  React.useEffect(() => {
+    setSelectedImage('');
+  }, [product?.id]);
 
   if (activeModal !== 'detail' || !product) return null;
 
+  const activeImage = selectedImage || product.image;
   const currentSize = selectedSize || product.sizes[0] || 'M';
   const currentColor = selectedColor || product.colors[0] || 'Default';
   const isWishlisted = wishlist.includes(product.id);
@@ -61,16 +67,38 @@ export const ProductDetailModal: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
             {/* Product Image Gallery */}
-            <div className="md:col-span-6 bg-slate-50 rounded-2xl p-8 border border-slate-200/80 flex items-center justify-center relative min-h-[300px]">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full max-h-72 object-contain"
-              />
-              <span className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-2xs border border-slate-200 flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-[#4285F4]" />
-                <span>94% STYLE MATCH</span>
-              </span>
+            <div className="md:col-span-6 space-y-3">
+              <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200/80 flex items-center justify-center relative min-h-[300px]">
+                <img
+                  src={activeImage}
+                  alt={product.name}
+                  className="w-full max-h-72 object-contain"
+                />
+                <span className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold shadow-2xs border border-slate-200 flex items-center gap-1">
+                  <Sparkles className="w-3.5 h-3.5 text-[#4285F4]" />
+                  <span>94% STYLE MATCH</span>
+                </span>
+              </div>
+
+              {/* Multi-angle / variation thumbnails */}
+              {product.images && product.images.length > 1 && (
+                <div className="flex items-center gap-2 justify-center pt-1">
+                  {product.images.map((imgUrl, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setSelectedImage(imgUrl)}
+                      className={`w-14 h-14 rounded-xl p-1.5 bg-slate-50 border-2 overflow-hidden transition-all cursor-pointer ${
+                        activeImage === imgUrl
+                          ? 'border-slate-900 shadow-xs scale-105'
+                          : 'border-slate-200 opacity-60 hover:opacity-100 hover:border-slate-400'
+                      }`}
+                    >
+                      <img src={imgUrl} alt={`${product.name} view ${i + 1}`} className="w-full h-full object-contain" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Product Specifications & Options */}

@@ -8,7 +8,6 @@ import { GoogleVerseProvider, useGoogleVerse } from './context/GoogleVerseContex
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { PersonalizedStore } from './components/PersonalizedStore';
-import { LimitedDrop } from './components/LimitedDrop';
 import { Lookbook } from './components/Lookbook';
 import { CommunitySection } from './components/CommunitySection';
 import { Footer } from './components/Footer';
@@ -42,7 +41,6 @@ const AppContent: React.FC = () => {
       <main className="flex-1">
         <Hero />
         <PersonalizedStore />
-        <LimitedDrop />
         <Lookbook />
         <CommunitySection />
       </main>

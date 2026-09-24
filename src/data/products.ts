@@ -1,4 +1,9 @@
 import { Product } from '../types';
+import classicTeeImg from '../assets/images/regenerated_image_1789006177295.webp';
+import colorBlockHoodieImg from '../assets/images/regenerated_image_1789006176183.webp';
+import everydayCapImg from '../assets/images/regenerated_image_1789006174195.webp';
+import travelMugImg from '../assets/images/regenerated_image_1789006178208.jpg';
+import googleTechBottleImg from '../assets/images/google_tech_bottle_1790215413009.jpg';
 
 // Styled SVG Image Generators for high quality, fast loading product visuals
 export function getProductSvg(name: string, primaryColor: string, accentColor: string, type: 'tee' | 'hoodie' | 'cap' | 'bag' | 'mug' | 'tech' | 'book'): string {
@@ -57,7 +62,7 @@ export const PRODUCTS: Product[] = [
     sizes: ['S', 'M', 'L', 'XL', '2XL'],
     colors: ['Off-White', 'Charcoal', 'Google Blue'],
     fitOptions: ['Relaxed', 'Regular', 'Slim'],
-    image: getProductSvg('GoogleVerse Classic Tee', '#1e293b', '#4285F4', 'tee'),
+    image: classicTeeImg,
     tags: ['classic', 'minimal', 'tee', 'cotton', 'everyday'],
     featured: true,
     tryOnAvailable: true,
@@ -77,7 +82,7 @@ export const PRODUCTS: Product[] = [
     sizes: ['S', 'M', 'L', 'XL', '2XL'],
     colors: ['Cloud White', 'Deep Black'],
     fitOptions: ['Oversized', 'Relaxed', 'Regular'],
-    image: getProductSvg('Color Block Hoodie', '#0f172a', '#EA4335', 'hoodie'),
+    image: colorBlockHoodieImg,
     tags: ['hoodie', 'colorblock', 'fleece', 'google', 'warm'],
     featured: true,
     tryOnAvailable: true,
@@ -97,7 +102,7 @@ export const PRODUCTS: Product[] = [
     sizes: ['One Size'],
     colors: ['Midnight Navy', 'Matte Black', 'Olive'],
     fitOptions: ['Regular'],
-    image: getProductSvg('Everyday Cap', '#1e293b', '#FBBC05', 'cap'),
+    image: everydayCapImg,
     tags: ['cap', 'hat', 'embroidered', 'accessory'],
     featured: false,
     tryOnAvailable: true,
@@ -154,7 +159,7 @@ export const PRODUCTS: Product[] = [
     sizes: ['450ml'],
     colors: ['Matte Black', 'Steel Silver'],
     fitOptions: ['Regular'],
-    image: getProductSvg('Travel Mug', '#0284c7', '#38bdf8', 'mug'),
+    image: travelMugImg,
     tags: ['mug', 'tumbler', 'coffee', 'desk', 'insulated'],
     featured: false,
     tryOnAvailable: false,
@@ -420,7 +425,8 @@ export const PRODUCTS: Product[] = [
     sizes: ['500ml'],
     colors: ['Matte White', 'Charcoal'],
     fitOptions: ['Regular'],
-    image: getProductSvg('Google Tech Bottle', '#0284c7', '#7dd3fc', 'mug'),
+    image: googleTechBottleImg,
+    images: [googleTechBottleImg, getProductSvg('Google Tech Bottle', '#0284c7', '#7dd3fc', 'mug')],
     tags: ['bottle', 'smart', 'tech', 'water', 'led'],
     featured: false,
     tryOnAvailable: false,
